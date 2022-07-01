@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
-	<title>Document</title>
+	<title>Project Tracker</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
 	<div class="jumbotron jumbotron-fluid bg-dark">
@@ -32,12 +32,12 @@
 					  <li class="list-group-item">Hourly Rate</li>
 					</ul>
 					<div class="card-footer bg-dark">
-						<input class="btn btn-light w-100" type="submit" value="Add Project">
+						<input class="btn btn-light w-100" id="addProject" type="button" data-toggle="modal" data-target="#addModal" value="Add Project">
 					</div>
 				</div>
 			</div>
 			<div class="list-group col-9">
-				<table class="table table-bordered">
+				<table class="table table-bordered" id="projectList">
 					<thead class="bg-danger text-light">
 					  <tr>
 						<th scope="col" class="col-2">Project Name</th>
@@ -49,9 +49,9 @@
 						<th scope="col" class="col-1"></th>
 					  </tr>
 					</thead>
-					<tbody>
+					<tbody class="table-hover">
 					  <tr class="bg-dark text-light">
-						<th scope="row">1</th>
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -60,7 +60,7 @@
 						<td></td>
 					  </tr>
 					  <tr class="bg-dark text-light">
-						<th scope="row">2</th>
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -69,7 +69,7 @@
 						<td></td>
 					  </tr>
 					  <tr class="bg-dark text-light">
-						<th scope="row">3</th>
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -82,6 +82,42 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal" id="addModal" tabindex="-1">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header bg-dark text-light">
+			  <h5 class="modal-title">New Project</h5>
+			  <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="container-fluid">
+				<div class="input-group mt-3">
+					<input type="text" class="form-control" id="projectName" placeholder="Project Name" aria-label="Project Name" aria-describedby="basic-addon2">
+				</div>
+				<div class="input-group mt-3">
+					<input type="text" class="form-control" id="projectType" placeholder="Project Type" aria-label="Project Type" aria-describedby="basic-addon2">
+				</div>
+				<div class="input-group mt-3">
+					<input type="date" class="form-control" id="projectDate" placeholder="Due Date" aria-label="Due Date" aria-describedby="basic-addon2">
+				</div>
+				<div class="input-group ml-auto mr-0 my-3">
+					<div class="input-group-prepend">
+					<span class="input-group-text">Hourly $</span>
+					</div>
+					<input type="text" class="form-control" id="projectPay" aria-label="Amount (to the nearest dollar)">
+					<div class="input-group-append">
+					<span class="input-group-text">.00</span>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			  <button type="button" id="projectSubmit" class="btn btn-primary">Add Project</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
